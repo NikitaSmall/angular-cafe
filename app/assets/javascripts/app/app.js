@@ -1,1 +1,4 @@
-var cafe = angular.module('cafe', []);
+var cafe = angular.module('cafe', [
+    'TableControllers',
+    'TableDirectives'
+]);

@@ -1,4 +1,4 @@
-<div class="container-fluid" ng-app="cafe">
+<div class="container-fluid" ng-controller="setTableController">
   <div class="panel panel-success">
     <div class="panel-heading">
       <h1 ng-if="name">Привет, {{name}}</h1>
@@ -11,4 +11,20 @@
       </form>
     </div>
   </div>
+
+<div class="panel panel-info">
+  <div class="panel-body" id="setCanvas" ng-click="addPoint($event)">
+    <div class="point"
+         ng-repeat="point in points"
+         style="left: {{point.x}}px; top: {{point.y}}px;"
+         ng-right-click="removePoint(point)">
+
+    </div>
+  </div>
+</div>
+
+  <div ng-repeat="point in points">
+    X: {{point.x}}; Y: {{point.y}} ({{point.id}})
+  </div>
+
 </div>

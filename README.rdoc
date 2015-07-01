@@ -1,0 +1,4 @@
+== README
+
+Project about cafe and cafe maintaining.
+No turbolinks, but use angular.js for app

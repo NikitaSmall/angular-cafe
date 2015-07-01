@@ -1,0 +1,1 @@
+var cafe = angular.module('cafe', []);

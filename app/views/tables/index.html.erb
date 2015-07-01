@@ -13,18 +13,24 @@
   </div>
 
 <div class="panel panel-info">
-  <div class="panel-body" id="setCanvas" ng-click="addPoint($event)">
+  <div class="panel-body"
+       id="setCanvas"
+       ng-click="addPoint($event)"
+       specify-width="setCanvasWidth">
     <div class="point"
          ng-repeat="point in points"
-         style="left: {{point.x}}px; top: {{point.y}}px;"
-         ng-right-click="removePoint(point)">
-
+         style="left: {{point.x}}%; top: {{point.y}}%;"
+         ng-right-click="removePoint(point)"
+         ng-click="$event.stopPropagation()">
+        <input type="text" placeholder="назнание столика" ng-model="point.name">
     </div>
   </div>
 </div>
 
   <div ng-repeat="point in points">
-    X: {{point.x}}; Y: {{point.y}} ({{point.id}})
+    X%: {{point.x}}; Y: {{point.y}} ({{point.id}}) - {{point.name}}
   </div>
+
+  Ширина: {{setCanvasWidth}}
 
 </div>

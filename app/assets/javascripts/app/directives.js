@@ -11,3 +11,25 @@ TableDirectives.directive('ngRightClick', function($parse) {
         });
     };
 });
+
+TableDirectives.directive('specifyHeight', function() {
+    return{
+        scope: {
+            specifyHeight: '='
+        },
+        link: function(scope, element) {
+            scope.specifyHeight = element.height();
+        }
+    }
+});
+
+TableDirectives.directive('specifyWidth', function() {
+    return{
+        scope: {
+            specifyWidth: '='
+        },
+        link: function(scope, element) {
+            scope.specifyWidth = element.width();
+        }
+    }
+});

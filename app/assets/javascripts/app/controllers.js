@@ -23,9 +23,13 @@ TableControllers.controller('setTableController', ['$scope',
                 mouseY = event.offsetY;
             }
 
+            mouseX = (mouseX / $scope.setCanvasWidth) * 100;
+            mouseY = (mouseY / 600) * 100;
+
             $scope.points.push({
-               x: event.offsetX,
-               y: event.offsetY,
+               x: mouseX,
+               y: mouseY,
+               name: '',
                id: Math.random().toString(36).substring(7)
             });
         };

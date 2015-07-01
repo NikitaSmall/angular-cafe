@@ -1,9 +1,9 @@
 var TableControllers = angular.module('TableControllers', []);
 
-TableControllers.controller('setTableController', ['$scope',
-    function($scope) {
+TableControllers.controller('setTableController', ['$scope', 'Table', '$http',
+    function($scope, Table, $http) {
         $scope.name = 'Никитка';
-        $scope.points = [];
+        $scope.points = Table.query();
 
         $scope.removePoint = function(point) {
             var index = $scope.points.indexOf(point);
@@ -32,5 +32,9 @@ TableControllers.controller('setTableController', ['$scope',
                name: '',
                id: Math.random().toString(36).substring(7)
             });
+        };
+
+        $scope.sendTables = function() {
+            $http.post('/tables', {tables: $scope.points || []});
         };
     }]);

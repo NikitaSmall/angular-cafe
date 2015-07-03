@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-6">
+        <ul class="list-group">
+            <li ng-repeat="room in rooms" class="list-group-item">
+                <a href="#/tables/{{room.id}}">{{room.name}}</a>
+                <span class="badge" ng-click="removeRoom(room)">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </span>
+            </li>
+        </ul>
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" ng-model="newRoomName">
+                <input type="button" class="btn btn-primary" value="Добавить комнату" ng-click="addRoom()">
+            </div>
+        </form>
+    </div>
+</div>
+

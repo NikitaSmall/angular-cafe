@@ -14,20 +14,21 @@
 ActiveRecord::Schema.define(version: 20150703074608) do
 
   create_table "rooms", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "tables", force: :cascade do |t|
-    t.string   "name"
-    t.float    "x"
-    t.float    "y"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "room_id_id"
+    t.string   "name",       limit: 255
+    t.float    "x",          limit: 24
+    t.float    "y",          limit: 24
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "room_id",    limit: 4
   end
 
-  add_index "tables", ["room_id_id"], name: "index_tables_on_room_id_id"
+  add_index "tables", ["room_id"], name: "index_tables_on_room_id", using: :btree
 
+  add_foreign_key "tables", "rooms"
 end

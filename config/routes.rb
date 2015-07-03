@@ -2,7 +2,15 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get '/tables' => 'tables#all'
+  get '/tables/tables' => 'tables#all'
+  get '/tables/:id' => 'tables#show'
+
+  get '/rooms/rooms' => 'rooms#all'
+  get '/rooms/:id' => 'rooms#show'
+
+  post '/rooms' => 'rooms#create', defaults: { format: 'json' }
+  delete '/rooms/:id' => 'rooms#destroy', defaults: { format: 'json' }
+
   post '/tables' => 'tables#save_tables', defaults: { format: 'json' }
 
   # The priority is based upon order of creation: first created -> highest priority.

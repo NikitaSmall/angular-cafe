@@ -1,9 +1,9 @@
 var tableController = angular.module('tableController', []);
 
-tableController.controller('setTableCtrl', ['$scope', 'Table', '$http',
-    function($scope, Table, $http) {
+tableController.controller('setTableCtrl', ['$scope', 'Table', '$http', '$routeParams',
+    function($scope, Table, $http, $routeParams) {
         $scope.name = 'Никитка';
-        $scope.points = Table.query();
+        $scope.points = Table.tables({id: $routeParams.id});
 
         $scope.removePoint = function(point) {
             var index = $scope.points.indexOf(point);
@@ -30,11 +30,12 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', '$http',
                x: mouseX,
                y: mouseY,
                name: '',
-               id: Math.random().toString(36).substring(7)
+               id: Math.random().toString(36).substring(7),
+               room: $routeParams.id
             });
         };
 
         $scope.sendTables = function() {
-            $http.post('/tables', {tables: $scope.points || []});
+            $http.post('/tables', {room: $routeParams.id, tables: $scope.points || []});
         };
     }]);

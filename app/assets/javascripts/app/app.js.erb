@@ -12,7 +12,7 @@ cafe.config(['$routeProvider', function($routeProvider) {
                 templateUrl: '<%= asset_path('roomsMenu.html') %>',
                 controller: 'roomMenuCtrl'
             }).
-            when('/tables', {
+            when('/tables/:id', {
                 templateUrl: '<%= asset_path('tablesSetter.html') %>',
                 controller: 'setTableCtrl'
             }).

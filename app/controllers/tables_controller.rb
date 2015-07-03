@@ -6,11 +6,11 @@ class TablesController < ApplicationController
   end
 
   def show
-    @tables = Table.find params[:id]
+    @tables = Table.where room: params[:id]
   end
 
   def save_tables
-    Table.set_tables params[:tables]
+    Table.set_tables params[:room], params[:tables]
 
     success = true
     respond_to do |format|

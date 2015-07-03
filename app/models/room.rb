@@ -4,7 +4,6 @@ class Room < ActiveRecord::Base
 
   has_many :tables, dependent: :destroy
 
-  
 
   def self.create_by_name(name)
     success = false

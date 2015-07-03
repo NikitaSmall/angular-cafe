@@ -30,5 +30,4 @@ ActiveRecord::Schema.define(version: 20150703074608) do
 
   add_index "tables", ["room_id"], name: "index_tables_on_room_id", using: :btree
 
-  add_foreign_key "tables", "rooms"
 end

@@ -26,7 +26,7 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    success = Room.delete params[:id]
+    success = Room.destroy params[:id]
 
     respond_to do |format|
       format.json { render json: success.to_json }

@@ -3,7 +3,7 @@ class Table < ActiveRecord::Base
   validates :name, :x, :y, presence: true
 
   def self.set_tables(room, tables)
-    delete_all(room: room)
+    destroy_all(room: room)
 
     if tables
       tables.each do |table|

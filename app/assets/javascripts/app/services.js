@@ -11,6 +11,7 @@ TableServices.factory('Table', ['$resource',
 TableServices.factory('Room', ['$resource',
     function($resource) {
         return $resource('/rooms/:id.json', {}, {
-            query: {method: 'GET', params: {id: 'rooms'}, isArray: true}
+            query: {method: 'GET', params: {id: 'rooms'}, isArray: true},
+            room: {method: 'GET', isArray: false}
         });
     }]);

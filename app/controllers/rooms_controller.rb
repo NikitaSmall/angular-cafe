@@ -17,6 +17,14 @@ class RoomsController < ApplicationController
     end
   end
 
+  def update
+    success = Room.update_name params[:room]
+
+    respond_to do |format|
+      format.json { render json: success.to_json }
+    end
+  end
+
   def destroy
     success = Room.delete params[:id]
 

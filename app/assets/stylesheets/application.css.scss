@@ -17,6 +17,9 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
+body {
+  margin-top: 60px;
+}
 
 #setCanvas {
   height: 600px;

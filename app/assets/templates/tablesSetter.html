@@ -1,11 +1,11 @@
 <div class="panel panel-success">
     <div class="panel-heading">
-        <h1 ng-if="name">Привет, {{name}}</h1>
+        <h1 ng-if="room.name">Редактор комнаты "{{room.name}}"</h1>
     </div>
     <div class="panel-body">
         <form class="form-inline">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Укажи имя!" ng-model="name">
+                <input type="text" class="form-control" placeholder="Укажите имя комнаты" ng-model="room.name">
                 <div class="btn btn-primary" ng-click="sendTables()">Сохранить данные</div>
             </div>
         </form>

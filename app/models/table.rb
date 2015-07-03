@@ -7,7 +7,7 @@ class Table < ActiveRecord::Base
 
     if tables
       tables.each do |table|
-        t = new(name: table[:name], x: table[:x], y: table[:y], room_id: table[:room])
+        t = new(name: table[:name], x: table[:x], y: table[:y], room_id: room)
         t.save
       end
     end

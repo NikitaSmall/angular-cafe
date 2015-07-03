@@ -1,7 +1,7 @@
 var tableController = angular.module('tableController', []);
 
-tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$http', '$routeParams',
-    function($scope, Table, Room, $http, $routeParams) {
+tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routeParams',
+    function($scope, Table, Room, $routeParams) {
         $scope.room = Room.room({id: $routeParams.id});
         $scope.points = Table.tables({id: $routeParams.id});
 
@@ -36,9 +36,12 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$http', 
         };
 
         $scope.sendTables = function() {
-            $http.post('/tables', {room: $routeParams.id, tables: $scope.points || []});
+            Table.sendTables({
+                room: $routeParams.id,
+                tables: $scope.points || []
+            });
             if($scope.room.name.length > 0) {
-                $http.put('/rooms', {room: $scope.room});
+                Room.updateRoom({room: $scope.room});
             }
         };
     }]);

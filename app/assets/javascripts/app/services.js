@@ -4,7 +4,8 @@ TableServices.factory('Table', ['$resource',
     function($resource) {
         return $resource('/tables/:id.json', {}, {
             query: {method: 'GET', params: {id: 'tables'}, isArray: true},
-            tables: {method: 'GET', isArray: true}
+            tables: {method: 'GET', isArray: true},
+            sendTables: {method: 'POST', url: '/tables'}
         });
     }]);
 
@@ -12,6 +13,9 @@ TableServices.factory('Room', ['$resource',
     function($resource) {
         return $resource('/rooms/:id.json', {}, {
             query: {method: 'GET', params: {id: 'rooms'}, isArray: true},
-            room: {method: 'GET', isArray: false}
+            room: {method: 'GET', isArray: false},
+            updateRoom: {method: 'PUT', url: '/rooms'},
+            addRoom: {method: 'POST', url: '/rooms'},
+            deleteRoom: {method: 'DELETE', url: '/rooms'}
         });
     }]);

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post '/rooms' => 'rooms#create', defaults: { format: 'json' }
   put '/rooms' => 'rooms#update', defaults: { format: 'json' }
-  delete '/rooms/:id' => 'rooms#destroy', defaults: { format: 'json' }
+  delete '/rooms' => 'rooms#destroy', defaults: { format: 'json' }
 
   post '/tables' => 'tables#save_tables', defaults: { format: 'json' }
 

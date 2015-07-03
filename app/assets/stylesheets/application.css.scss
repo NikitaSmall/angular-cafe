@@ -16,3 +16,27 @@
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+
+#setCanvas {
+  height: 600px;
+  width: 100%;
+  border: 0.5px;
+  position: relative;
+}
+
+.point {
+  margin-left: -75px;
+  margin-top: -75px;
+  height: 150px;
+  width: 150px;
+  background: url(table_1.png) no-repeat;
+  background-size: cover;
+  position: absolute;
+}
+
+.point input {
+  margin-left: 9px;
+  width: 130px;
+  margin-top: 55px;
+}

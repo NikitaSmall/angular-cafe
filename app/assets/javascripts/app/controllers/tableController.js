@@ -1,6 +1,6 @@
-var TableControllers = angular.module('TableControllers', []);
+var tableController = angular.module('tableController', []);
 
-TableControllers.controller('setTableController', ['$scope', 'Table', '$http',
+tableController.controller('setTableCtrl', ['$scope', 'Table', '$http',
     function($scope, Table, $http) {
         $scope.name = 'Никитка';
         $scope.points = Table.query();

@@ -1,11 +1,12 @@
 class TablesController < ApplicationController
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
-  def index
-  end
-
   def all
     @tables = Table.all
+  end
+
+  def show
+    @tables = Table.find params[:id]
   end
 
   def save_tables

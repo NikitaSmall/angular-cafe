@@ -1,0 +1,34 @@
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h1 ng-if="name">Привет, {{name}}</h1>
+    </div>
+    <div class="panel-body">
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Укажи имя!" ng-model="name">
+                <div class="btn btn-primary" ng-click="sendTables()">Сохранить данные</div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-body"
+         id="setCanvas"
+         ng-click="addPoint($event)"
+         specify-width="setCanvasWidth">
+        <div class="point"
+             ng-repeat="point in points"
+             style="left: {{point.x}}%; top: {{point.y}}%;"
+             ng-right-click="removePoint(point)"
+             ng-click="$event.stopPropagation()">
+            <input type="text" class="form-control" placeholder="Назнание" ng-model="point.name">
+        </div>
+    </div>
+</div>
+
+<div ng-repeat="point in points">
+    X%: {{point.x}}; Y: {{point.y}} ({{point.id}}) - {{point.name}}
+</div>
+
+Ширина: {{setCanvasWidth}}

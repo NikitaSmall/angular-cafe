@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'tables#index'
+  root 'home#index'
 
   get '/tables' => 'tables#all'
   post '/tables' => 'tables#save_tables', defaults: { format: 'json' }

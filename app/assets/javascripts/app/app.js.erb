@@ -1,0 +1,22 @@
+var cafe = angular.module('cafe', [
+    'tableController',
+    'roomMenuController',
+    'TableDirectives',
+    'TableServices',
+    'ngRoute'
+]);
+
+cafe.config(['$routeProvider', function($routeProvider) {
+        $routeProvider.
+            when('/rooms', {
+                templateUrl: '<%= asset_path('roomsMenu.html') %>',
+                controller: 'roomMenuCtrl'
+            }).
+            when('/tables', {
+                templateUrl: '<%= asset_path('tablesSetter.html') %>',
+                controller: 'setTableCtrl'
+            }).
+            otherwise({
+                redirectTo: '/rooms'
+            });
+    }]);

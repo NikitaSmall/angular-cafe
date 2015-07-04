@@ -9,7 +9,7 @@ class Room < ActiveRecord::Base
     success = false
 
     unless name.blank?
-      room = Room.create(name: name)
+      room = create(name: name)
       success = room.id
     end
     success

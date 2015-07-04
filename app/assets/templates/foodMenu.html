@@ -18,7 +18,13 @@
             <div class="col-md-offset-1 col-md-10">
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="category in categories">
-                        <h3>{{category.name}}</h3>
+                        <h3>
+                            {{category.name}}
+                            <button type="button" class="pull-right btn btn-default" ng-click="removeCategory(category)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+
                         <div class="">
                             <ul class="list-group">
                                 <li class="list-group-item" ng-repeat="product in category.products">

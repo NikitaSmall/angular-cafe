@@ -23,6 +23,8 @@ TableServices.factory('Room', ['$resource',
 TableServices.factory('Category', ['$resource',
     function($resource) {
         return $resource('/categories/:id.json', {}, {
-            query: {method: 'GET', params: {id: 'categories'}, isArray: true}
+            query: {method: 'GET', params: {id: 'categories'}, isArray: true},
+            addCategory: {method: 'POST', url: '/categories'},
+            deleteCategory: {method: 'DELETE', url: '/categories'}
         });
     }]);

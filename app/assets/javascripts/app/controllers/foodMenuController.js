@@ -1,17 +1,19 @@
 var foodMenuController = angular.module('foodMenuController', []);
 
-foodMenuController.controller('foodMenuCtrl', ['$scope', 'Category',
-    function($scope, Category) {
+foodMenuController.controller('foodMenuCtrl', ['$scope', 'Category', 'Product',
+    function($scope, Category, Product) {
         $scope.categories = Category.query();
 
         $scope.addCategory = function (categoryName) {
             Category.addCategory({name: categoryName}, function(success) {
-                $scope.categories.push({
-                    id: success.success,
-                    name: categoryName,
-                    products: []
-                });
-                $scope.categoryName = '';
+                if(success.success) {
+                    $scope.categories.push({
+                        id: success.success,
+                        name: categoryName,
+                        products: []
+                    });
+                    $scope.categoryName = '';
+                }
             }, function(error) {
                 console.log(error);
             });
@@ -35,11 +37,24 @@ foodMenuController.controller('foodMenuCtrl', ['$scope', 'Category',
         };
 
         $scope.addProduct = function(category) {
-            category.products.push({
-               name: category.foodName,
-               price: category.foodPrice
+            Product.addProduct({
+                category_id: category.id,
+                name: category.foodName,
+                price: category.foodPrice
+            }, function(success) {
+                if(success.success) {
+                    category.products.push({
+                        id: success.success,
+                        category_id: category.id,
+                        name: category.foodName,
+                        price: category.foodPrice
+                    });
+                    category.foodName = '';
+                    category.foodPrice = '';
+                }
+            }, function(error) {
+                console.log(error);
             });
-            category.foodName = '';
-            category.foodPrice = '';
-        }
+
+        };
     }]);

@@ -7,11 +7,13 @@ roomMenuController.controller('roomMenuCtrl', ['$scope', 'Room', function($scope
 
             Room.addRoom({name: $scope.newRoomName || null},
                 function(success) {
-                    $scope.rooms.push({
-                        id: success.success,
-                        name: $scope.newRoomName
-                    });
-                    $scope.newRoomName = '';
+                    if (success.success) {
+                        $scope.rooms.push({
+                            id: success.success,
+                            name: $scope.newRoomName
+                        });
+                        $scope.newRoomName = '';
+                    }
                 },
                 function(error) {
                     console.log(error);

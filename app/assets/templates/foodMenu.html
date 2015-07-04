@@ -19,7 +19,7 @@
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="category in categories">
                         <h3>
-                            {{category.name}}
+                            {{category.id}} - {{category.name}}
                             <button type="button" class="pull-right btn btn-default" ng-click="removeCategory(category)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
@@ -28,7 +28,7 @@
                         <div class="">
                             <ul class="list-group">
                                 <li class="list-group-item" ng-repeat="product in category.products">
-                                    {{product.name}} - {{product.price}}
+                                    {{product.id}} - {{product.name}} - {{product.price}}
                                 </li>
                             </ul>
                         </div>

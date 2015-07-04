@@ -28,3 +28,10 @@ TableServices.factory('Category', ['$resource',
             deleteCategory: {method: 'DELETE', url: '/categories'}
         });
     }]);
+
+TableServices.factory('Product', ['$resource',
+    function ($resource) {
+        return $resource('/products/:id.json', {}, {
+           addProduct: {method: 'POST', url: '/products'}
+        });
+    }]);

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post '/categories' => 'categories#create', defaults: { format: 'json' }
   delete 'categories' => 'categories#destroy', defaults: { format: 'json' }
 
+  post 'products' => 'products#create', defaults: { format: 'json' }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

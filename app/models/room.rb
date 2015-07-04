@@ -9,10 +9,8 @@ class Room < ActiveRecord::Base
     success = false
 
     unless name.blank?
-      @room = Room.new(name: name)
-      @room.save
-
-      success = @room.id
+      room = Room.create(name: name)
+      success = room.id
     end
     success
   end

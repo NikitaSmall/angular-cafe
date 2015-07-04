@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
     success = Room.create_by_name params[:name]
 
     respond_to do |format|
-      format.json { render json: success.to_json }
+      format.json { render json: {success: success} }
     end
   end
 

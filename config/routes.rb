@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/tables/tables' => 'tables#all'
   get '/tables/:id' => 'tables#show'
 
+  post '/tables' => 'tables#save_tables', defaults: { format: 'json' }
+
   get '/rooms/rooms' => 'rooms#all'
   get '/rooms/:id' => 'rooms#show'
 
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
   put '/rooms' => 'rooms#update', defaults: { format: 'json' }
   delete '/rooms' => 'rooms#destroy', defaults: { format: 'json' }
 
-  post '/tables' => 'tables#save_tables', defaults: { format: 'json' }
+  get '/categories/categories' => 'categories#all'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

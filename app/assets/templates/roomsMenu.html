@@ -3,9 +3,9 @@
         <ul class="list-group">
             <li ng-repeat="room in rooms" class="list-group-item">
                 <a href="#/tables/{{room.id}}">{{room.name}}</a>
-                <span class="badge" ng-click="removeRoom(room)">
+                <button type="button" class="btn btn-default badge" ng-click="removeRoom(room)">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </span>
+                </button>
             </li>
         </ul>
         <form class="form-inline">

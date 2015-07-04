@@ -19,3 +19,10 @@ TableServices.factory('Room', ['$resource',
             deleteRoom: {method: 'DELETE', url: '/rooms'}
         });
     }]);
+
+TableServices.factory('Category', ['$resource',
+    function($resource) {
+        return $resource('/categories/:id.json', {}, {
+            query: {method: 'GET', params: {id: 'categories'}, isArray: true}
+        });
+    }]);

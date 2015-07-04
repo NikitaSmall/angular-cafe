@@ -1,8 +1,8 @@
 var foodMenuController = angular.module('foodMenuController', []);
 
-foodMenuController.controller('foodMenuCtrl', ['$scope',
-    function($scope) {
-        $scope.categories = [];
+foodMenuController.controller('foodMenuCtrl', ['$scope', 'Category',
+    function($scope, Category) {
+        $scope.categories = Category.query();
 
         $scope.addCategory = function (categoryName) {
             $scope.categories.push({

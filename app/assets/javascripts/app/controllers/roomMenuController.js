@@ -8,7 +8,7 @@ roomMenuController.controller('roomMenuCtrl', ['$scope', 'Room', function($scope
             Room.addRoom({name: $scope.newRoomName || null},
                 function(success) {
                     $scope.rooms.push({
-                        id: success,
+                        id: success.success,
                         name: $scope.newRoomName
                     });
                     $scope.newRoomName = '';
@@ -24,7 +24,7 @@ roomMenuController.controller('roomMenuCtrl', ['$scope', 'Room', function($scope
             if(index > -1) {
                 var id = $scope.rooms[index].id;
 
-                Room.deleteRoom({id: id},
+                Room.deleteRoom({id: room.id},
                     function() {
                         $scope.rooms.splice(index, 1);
                     },

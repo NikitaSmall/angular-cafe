@@ -32,6 +32,7 @@ TableServices.factory('Category', ['$resource',
 TableServices.factory('Product', ['$resource',
     function ($resource) {
         return $resource('/products/:id.json', {}, {
-           addProduct: {method: 'POST', url: '/products'}
+           addProduct: {method: 'POST', url: '/products'},
+            deleteProduct: {method: 'DELETE', url: '/products'}
         });
     }]);

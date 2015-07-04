@@ -57,4 +57,20 @@ foodMenuController.controller('foodMenuCtrl', ['$scope', 'Category', 'Product',
             });
 
         };
+
+        $scope.removeProduct = function(category, product) {
+            var index = category.products.indexOf(product);
+
+            if(index > -1) {
+                var id = category.products[index].id;
+
+                Product.deleteProduct({id: product.id},
+                    function() {
+                        category.products.splice(index, 1);
+                    },
+                    function(error) {
+                        console.log(error);
+                    });
+            }
+        };
     }]);

@@ -8,4 +8,12 @@ class ProductsController < ApplicationController
       format.json { render json: {success: success} }
     end
   end
+
+  def destroy
+    success = Product.destroy params[:id]
+
+    respond_to do |format|
+      format.json { render json: success.to_json }
+    end
+  end
 end

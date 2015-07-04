@@ -1,6 +1,7 @@
 var cafe = angular.module('cafe', [
     'tableController',
     'roomMenuController',
+    'foodMenuController',
     'TableDirectives',
     'TableServices',
     'ngRoute'
@@ -8,6 +9,10 @@ var cafe = angular.module('cafe', [
 
 cafe.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
+            when('/menu', {
+                    templateUrl: '<%= asset_path('foodMenu.html') %>',
+                    controller: 'foodMenuCtrl'
+                }).
             when('/rooms', {
                 templateUrl: '<%= asset_path('roomsMenu.html') %>',
                 controller: 'roomMenuCtrl'

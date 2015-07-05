@@ -50,7 +50,7 @@ foodMenuController.controller('foodMenuCtrl', ['$scope', 'Category', 'Product',
                         price: category.foodPrice
                     });
                     category.foodName = '';
-                    category.foodPrice = '';
+                    category.foodPrice = 0;
                 }
             }, function(error) {
                 console.log(error);

@@ -1,28 +1,5 @@
 <div class="row">
-    <div class="col-md-7">
-        <div class="panel panel-info col-md-offset-1 col-md-10">
-            <div class="panel-body">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label>Название новой комнаты: </label>
-                        <input type="text" class="form-control" ng-model="newRoomName" placeholder="Название комнаты">
-                        <input type="button" class="btn btn-primary" value="Добавить комнату" ng-click="addRoom()">
-                    </div>
-                </form>
-            </div>
-
-            <ul class="list-group">
-                <li ng-repeat="room in rooms" class="list-group-item">
-                    <a href="#/tables/{{room.id}}">{{room.name}}</a>
-                    <button type="button" class="btn btn-default badge" ng-click="removeRoom(room)">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="col-md-5" sticky offset="60">
+    <div class="col-md-4 col-md-push-7">
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3>Редактор списка комнат</h3>
@@ -39,6 +16,29 @@
                     расстановку столиков, просто нажмите на ссылку соответствущей комнаты.
                 </p>
             </div>
+        </div>
+    </div>
+
+    <div class="col-md-7 col-md-pull-4">
+        <div class="panel panel-info col-md-offset-1 col-md-10">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-inline">
+                        <label>Название новой комнаты: </label>
+                        <input type="text" class="form-control" ng-model="newRoomName" placeholder="Имя комнаты">
+                        <input type="button" class="btn btn-primary" value="Добавить комнату" ng-click="addRoom()">
+                    </div>
+                </form>
+            </div>
+
+            <ul class="list-group">
+                <li ng-repeat="room in rooms" class="list-group-item">
+                    <a href="#/tables/{{room.id}}">{{room.name}}</a>
+                    <button type="button" class="btn btn-default badge" ng-click="removeRoom(room)">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

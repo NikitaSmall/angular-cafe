@@ -1,34 +1,45 @@
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h1 ng-if="room.name">Редактор комнаты "{{room.name}}"</h1>
-    </div>
-    <div class="panel-body">
-        <form class="form-inline">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Укажите имя комнаты" ng-model="room.name">
-                <div class="btn btn-primary" ng-click="sendTables()">Сохранить данные</div>
+<div class="row">
+    <div class="col-md-4 col-md-push-7">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h1 ng-if="room.name">Редактор комнаты "{{room.name}}"</h1>
             </div>
-        </form>
+            <div class="panel-body">
+                <p>На данной странице Вы можете добавить столики в комнату
+                    и назвать их для работы с ними в будущем.</p>
+                <p>Столик можно разместить кликнув левой кнопкой мыши по полю.
+                    Чтобы убрать столик необходимо кликнуть по нему правой кнопкой мыши.</p>
+                <p>Каждый стол должен иметь имя. Столик с пустым полем имени не будет сохранён.
+                    Для сохранения работы необходимо нажать на кнопку "Сохранить данные"</p>
+                <p>Также можно изменить название комнаты. Для этого надо отредактировать поле ниже
+                    и нажать "Сохранить данные". Название комнаты должно быть уникальным и не пустым.</p>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label>Название комнаты: </label>
+                        <input type="text" class="form-control" placeholder="Укажите имя комнаты" ng-model="room.name">
+                        <div class="btn btn-primary" ng-click="sendTables()">Сохранить данные</div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="panel panel-info">
-    <div class="panel-body"
-         id="setCanvas"
-         ng-click="addPoint($event)"
-         specify-width="setCanvasWidth">
-        <div class="point"
-             ng-repeat="point in points"
-             style="left: {{point.x}}%; top: {{point.y}}%;"
-             ng-right-click="removePoint(point)"
-             ng-click="$event.stopPropagation()">
-            <input type="text" class="form-control" placeholder="Назнание" ng-model="point.name">
+    <div class="col-md-7 col-md-pull-4">
+        <div class="">
+            <div class="panel panel-info">
+                <div class="panel-body"
+                     id="setCanvas"
+                     ng-click="addPoint($event)"
+                     specify-width="setCanvasWidth"
+                        style="height: {{setCanvasWidth}}px;">
+                    <div class="point"
+                         ng-repeat="point in points"
+                         style="left: {{point.x}}%; top: {{point.y}}%;"
+                         ng-right-click="removePoint(point)"
+                         ng-click="$event.stopPropagation()">
+                        <input type="text" class="form-control" placeholder="Назнание" ng-model="point.name">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-<div ng-repeat="point in points">
-    X%: {{point.x}}; Y: {{point.y}} ({{point.id}}) - {{point.name}}
-</div>
-
-Ширина: {{setCanvasWidth}}

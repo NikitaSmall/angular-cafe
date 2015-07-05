@@ -1,9 +1,29 @@
 <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-4 col-md-push-7">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3>Редактор меню</h3>
+            </div>
+            <div class="panel-body">
+                <p>В данном разделе Вы можете редактировать меню Вашего заведения. </p>
+                <p>Правила составления меню:</p>
+                <ol>
+                    <li>Название категории должно быть уникальным.</li>
+                    <li>Поле названия категории не может быть пустным.</li>
+                    <li>Название товара должно быть уникальным.</li>
+                    <li>Поле названия товара не может быть пустым.</li>
+                    <li>Цена товара не может быть меньше 0.</li>
+                    <li>Поле цены товара не может быть пустым.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7 col-md-pull-4">
         <div class="panel panel-info col-md-offset-1 col-md-10">
             <div class="panel-body">
-                <form class="form-inline">
-                    <div class="form-group">
+                <form class="form-horizontal">
+                    <div class="form-inline">
                         <label>Добавление новой категории: </label>
                         <input type="text" class="form-control" ng-model="categoryName" placeholder="Название категории">
                         <input type="button" class="btn btn-primary" value="Добавить" ng-click="addCategory(categoryName)">
@@ -35,8 +55,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <form class="form-inline">
-                            <div class="form-group">
+                        <form class="form-horizontal">
+                            <div class="form-inline">
                                 <label>Новый продукт в этой категории: </label>
                                 <input type="text"
                                        class="form-control"
@@ -55,26 +75,6 @@
                         </form>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5" sticky offset="60">
-        <div class="panel panel-success">
-            <div class="panel-heading">
-                <h3>Редактор меню</h3>
-            </div>
-            <div class="panel-body">
-                <p>В данном разделе Вы можете редактировать меню Вашего заведения. </p>
-                <p>Правила составления меню:</p>
-                <ol>
-                    <li>Название категории должно быть уникальным.</li>
-                    <li>Поле названия категории не может быть пустным.</li>
-                    <li>Название товара должно быть уникальным.</li>
-                    <li>Поле названия товара не может быть пустым.</li>
-                    <li>Цена товара не может быть меньше 0.</li>
-                    <li>Поле цены товара не может быть пустым.</li>
-                </ol>
             </div>
         </div>
     </div>

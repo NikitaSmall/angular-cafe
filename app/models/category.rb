@@ -2,6 +2,7 @@ class Category < ActiveRecord::Base
   has_many :products, dependent: :destroy
 
   validates :name, presence: true
+  validates :name, uniqueness: true
 
   def self.create_by_name(name)
     success = false

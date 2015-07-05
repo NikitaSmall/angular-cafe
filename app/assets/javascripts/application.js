@@ -16,4 +16,6 @@
 //= require angular/angular
 //= require angular-resource/angular-resource
 //= require angular-route/angular-route
+//= require ngSticky/lib/sticky
+//= require matchmedia/matchMedia
 //= require_tree .

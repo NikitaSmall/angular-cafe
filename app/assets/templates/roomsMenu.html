@@ -1,19 +1,45 @@
 <div class="row">
-    <div class="col-md-6">
-        <ul class="list-group">
-            <li ng-repeat="room in rooms" class="list-group-item">
-                <a href="#/tables/{{room.id}}">{{room.name}}</a>
-                <button type="button" class="btn btn-default badge" ng-click="removeRoom(room)">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
-            </li>
-        </ul>
-        <form class="form-inline">
-            <div class="form-group">
-                <input type="text" class="form-control" ng-model="newRoomName">
-                <input type="button" class="btn btn-primary" value="Добавить комнату" ng-click="addRoom()">
+    <div class="col-md-7">
+        <div class="panel panel-info col-md-offset-1 col-md-10">
+            <div class="panel-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label>Название новой комнаты: </label>
+                        <input type="text" class="form-control" ng-model="newRoomName" placeholder="Название комнаты">
+                        <input type="button" class="btn btn-primary" value="Добавить комнату" ng-click="addRoom()">
+                    </div>
+                </form>
             </div>
-        </form>
+
+            <ul class="list-group">
+                <li ng-repeat="room in rooms" class="list-group-item">
+                    <a href="#/tables/{{room.id}}">{{room.name}}</a>
+                    <button type="button" class="btn btn-default badge" ng-click="removeRoom(room)">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-5" sticky offset="60">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3>Редактор списка комнат</h3>
+            </div>
+            <div class="panel-body">
+                <p>В данном разделе Вы можете добавлять и удалять комнаты. </p>
+                <p>Правила, связанные с комнатами:</p>
+                <ol>
+                    <li>Название комнаты должно быть уникальным.</li>
+                    <li>Поле названия комнаты не может быть пустным.</li>
+                </ol>
+                <p>
+                    Для того, чтобы отредактировать комнату, в том числе название и
+                    расстановку столиков, просто нажмите на ссылку соответствущей комнаты.
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 

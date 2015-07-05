@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="col-md-7 sticky-parent">
+    <div class="col-md-7">
         <div class="panel panel-info col-md-offset-1 col-md-10">
             <div class="panel-body">
                 <form class="form-inline">
                     <div class="form-group">
                         <label>Добавление новой категории: </label>
                         <input type="text" class="form-control" ng-model="categoryName" placeholder="Название категории">
-                        <input type="button" class="btn btn-primary" value="Добавить категорию" ng-click="addCategory(categoryName)">
+                        <input type="button" class="btn btn-primary" value="Добавить" ng-click="addCategory(categoryName)">
                     </div>
                 </form>
             </div>
@@ -19,7 +19,7 @@
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="category in categories">
                         <h3>
-                            {{category.id}} - {{category.name}}
+                            {{category.name}}
                             <button type="button" class="pull-right btn btn-default" ng-click="removeCategory(category)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
@@ -28,7 +28,7 @@
                         <div class="">
                             <ul class="list-group">
                                 <li class="list-group-item" ng-repeat="product in category.products">
-                                    {{product.id}} - {{product.name}} - {{product.price}}
+                                    {{product.name}} - {{product.price}}
                                     <button type="button" class="btn btn-default badge" ng-click="removeProduct(category, product)">
                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                     </button>
@@ -41,13 +41,14 @@
                                 <input type="text"
                                        class="form-control"
                                        ng-model="category.foodName"
-                                       placeholder="Название">
+                                       placeholder="Название"
+                                       style="width: 150px;">
 
                                 <input type="number"
                                        class="form-control"
                                        ng-model="category.foodPrice"
                                        placeholder="Цена"
-                                       style="width: 100px;">
+                                       style="width: 80px;">
 
                                 <input type="button" class="btn btn-primary" value="Добавить" ng-click="addProduct(category)">
                             </div>

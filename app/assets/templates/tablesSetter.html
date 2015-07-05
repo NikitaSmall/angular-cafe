@@ -13,11 +13,17 @@
                     Для сохранения работы необходимо нажать на кнопку "Сохранить данные"</p>
                 <p>Также можно изменить название комнаты. Для этого надо отредактировать поле ниже
                     и нажать "Сохранить данные". Название комнаты должно быть уникальным и не пустым.</p>
-                <form class="form-inline">
+                <form class="form-horizontal">
                     <div class="form-group">
-                        <label>Название комнаты: </label>
-                        <input type="text" class="form-control" placeholder="Укажите имя комнаты" ng-model="room.name">
-                        <div class="btn btn-primary" ng-click="sendTables()">Сохранить данные</div>
+                        <label class="col-md-5 col-sm-3 control-label" for="roomName">Название комнаты: </label>
+                        <div class="col-md-7 col-sm-9">
+                            <input type="text" class="form-control" id="roomName" placeholder="Укажите имя комнаты" ng-model="room.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="btn btn-primary wide" ng-click="sendTables()">Сохранить данные</div>
+                        </div>
                     </div>
                 </form>
             </div>

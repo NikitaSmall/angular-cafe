@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-4 col-md-push-7">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3>Редактор настроек</h3>
+            </div>
+            <div class="panel-body">
+                <p>В данном разделе Вы можете изменять
+                    некоторые глобальные настройки вашего приложения. </p>
+                <p>
+                    Для того, чтобы отредактировать настройки
+                    вам необходимо в изменить значение в поле соответствующей настройки.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7 col-md-pull-4">
+        <div class="panel panel-info col-md-offset-1 col-md-10">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-md-5 col-sm-3 control-label">Подпись валюты кафе: </label>
+                        <div class="col-md-7 col-sm-9">
+                            <input type="text" class="form-control" ng-model="money" placeholder="Подпись валюты">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="button" class="btn btn-primary wide" value="Изменить настройки" ng-click="changeOptions()">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

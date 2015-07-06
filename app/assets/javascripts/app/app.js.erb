@@ -2,6 +2,7 @@ var cafe = angular.module('cafe', [
     'tableController',
     'roomMenuController',
     'foodMenuController',
+    'optionsMenuController',
     'TableDirectives',
     'TableServices',
     'ngRoute',
@@ -21,6 +22,10 @@ cafe.config(['$routeProvider', function($routeProvider) {
             when('/tables/:id', {
                 templateUrl: '<%= asset_path('tablesSetter.html') %>',
                 controller: 'setTableCtrl'
+            }).
+            when('/options', {
+                templateUrl: '<%= asset_path('optionsMenu.html') %>',
+                controller: 'optionsMenuCtrl'
             }).
             otherwise({
                 redirectTo: '/rooms'

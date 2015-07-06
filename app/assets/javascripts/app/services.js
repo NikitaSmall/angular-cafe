@@ -45,3 +45,13 @@ TableServices.factory('Option', ['$resource',
            setOptions: {method: 'POST', url: '/options'}
         });
     }]);
+
+TableServices.factory('Order', ['$resource',
+    function ($resource) {
+        return $resource('/orders/:id.json', {}, {
+            query: {method: 'GET', params: {id: 'orders'}, isArray: true},
+            addOrder: {method: 'POST', url: '/orders'},
+            changeOrder: {method: 'PUT', url: '/orders'},
+            deleteOrder: {method: 'DELETE', url: '/orders'}
+        });
+    }]);

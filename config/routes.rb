@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'orders/all'
+
+  get 'orders/show'
+
+  get 'orders/create'
+
+  get 'orders/update'
+
+  get 'orders/delete'
+
   get 'options/all'
 
   get 'options/set_options'
@@ -30,6 +40,12 @@ Rails.application.routes.draw do
   get '/options/:name' => 'options#show'
 
   post '/options' => 'options#set_options', defaults: { format: 'json' }
+
+  get '/orders/orders' => 'orders#all'
+
+  post '/orders' => 'orders#create', defaults: { format: 'json' }
+  put '/orders' => 'orders#update', defaults: { format: 'json' }
+  delete '/orders' => 'orders#destroy', defaults: { format: 'json' }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

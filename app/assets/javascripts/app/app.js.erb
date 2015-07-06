@@ -3,6 +3,8 @@ var cafe = angular.module('cafe', [
     'roomMenuController',
     'foodMenuController',
     'optionsMenuController',
+    'ordersMenuController',
+    'orderController',
     'TableDirectives',
     'TableServices',
     'tableFilters',
@@ -12,6 +14,14 @@ var cafe = angular.module('cafe', [
 
 cafe.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
+            when('/orders', {
+                    templateUrl: '<%= asset_path('ordersMenu.html') %>',
+                    controller: 'ordersMenuCtrl'
+                }).
+            when('/orders/:id', {
+                    templateUrl: '<%= asset_path('order.html') %>',
+                    controller: 'orderCtrl'
+                }).
             when('/menu', {
                     templateUrl: '<%= asset_path('foodMenu.html') %>',
                     controller: 'foodMenuCtrl'
@@ -29,6 +39,6 @@ cafe.config(['$routeProvider', function($routeProvider) {
                 controller: 'optionsMenuCtrl'
             }).
             otherwise({
-                redirectTo: '/rooms'
+                redirectTo: '/orders'
             });
     }]);

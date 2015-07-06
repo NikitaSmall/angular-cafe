@@ -54,7 +54,7 @@
                         <div class="">
                             <ul class="list-group">
                                 <li class="list-group-item" ng-repeat="product in category.products">
-                                    {{product.name}} - {{product.price}}
+                                    {{product.name}} - {{product.price | afterCurrency:money.value}}
                                     <button type="button" class="btn btn-default badge" ng-click="removeProduct(category, product)">
                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                     </button>

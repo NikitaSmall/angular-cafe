@@ -33,6 +33,15 @@ TableServices.factory('Product', ['$resource',
     function ($resource) {
         return $resource('/products/:id.json', {}, {
            addProduct: {method: 'POST', url: '/products'},
-            deleteProduct: {method: 'DELETE', url: '/products'}
+           deleteProduct: {method: 'DELETE', url: '/products'}
+        });
+    }]);
+
+TableServices.factory('Option', ['$resource',
+    function ($resource) {
+        return $resource('/options/:name.json', {}, {
+           query: {method: 'GET', params: {name: '1'}},
+           getOptions: {method: 'GET', url: '/options.json'},
+           setOptions: {method: 'POST', url: '/options'}
         });
     }]);

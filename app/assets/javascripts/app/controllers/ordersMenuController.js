@@ -1,7 +1,7 @@
 var ordersMenuController = angular.module('ordersMenuController', []);
 
-ordersMenuController.controller('ordersMenuCtrl', ['$scope', 'Order',
-    function($scope, Order) {
+ordersMenuController.controller('ordersMenuCtrl', ['$scope', 'Order', '$location',
+    function($scope, Order, $location) {
         $scope.orders = Order.query();
 
         $scope.addOrder = function() {
@@ -15,6 +15,7 @@ ordersMenuController.controller('ordersMenuCtrl', ['$scope', 'Order',
                             note: ''
                         });
                     }
+                    $location.path('/orders/' + order.id);
                 },
                 function(error) {
                     console.log(error);

@@ -30,8 +30,9 @@
 
             <ul class="list-group">
                 <li ng-repeat="order in orders" class="list-group-item">
-                    <input type="checkbox" ng-model="order.status" ng-click="changeStatus(order)">
+                    <abbr title="Статус заказа"><input type="checkbox" ng-model="order.status" ng-click="changeStatus(order)"></abbr>
                     <a href="#/orders/{{order.id}}">Заказ от {{order.created_at|date:'HH:mm:ss, dd.MM.yyyy'}}</a>
+                    <span class="text-right"> | Сумма заказа: {{order.price}}</span>
                     <button type="button" class="btn btn-default badge" ng-click="removeOrder(order)">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </button>

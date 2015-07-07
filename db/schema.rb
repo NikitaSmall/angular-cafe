@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706205555) do
+ActiveRecord::Schema.define(version: 20150707074339) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "order_id",   limit: 4
+    t.float    "price",      limit: 24
+    t.integer  "count",      limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
   create_table "options", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -61,5 +73,7 @@ ActiveRecord::Schema.define(version: 20150706205555) do
 
   add_index "tables", ["room_id"], name: "index_tables_on_room_id", using: :btree
 
+  add_foreign_key "line_items", "orders"
+  add_foreign_key "line_items", "products"
   add_foreign_key "products", "categories"
 end

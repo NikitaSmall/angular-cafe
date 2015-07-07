@@ -20,7 +20,8 @@ class OrdersController < ApplicationController
   def update
     order = Order.find params[:id]
 
-    order.status = !order.status unless params[:status].nil?
+    order.note = params[:note] unless params[:note].nil?
+    order.status = params[:status] unless params[:status].nil?
     order.save
 
     respond_to do |format|

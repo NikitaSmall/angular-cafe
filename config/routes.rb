@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   post '/options' => 'options#set_options', defaults: { format: 'json' }
 
   get '/orders/orders' => 'orders#all'
+  get '/orders/:id' => 'orders#show'
 
   post '/orders' => 'orders#create', defaults: { format: 'json' }
   put '/orders' => 'orders#update', defaults: { format: 'json' }

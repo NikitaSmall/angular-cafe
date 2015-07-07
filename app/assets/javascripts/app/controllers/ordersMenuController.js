@@ -1,8 +1,9 @@
 var ordersMenuController = angular.module('ordersMenuController', []);
 
-ordersMenuController.controller('ordersMenuCtrl', ['$scope', 'Order', '$location',
-    function($scope, Order, $location) {
+ordersMenuController.controller('ordersMenuCtrl', ['$scope', 'Order', '$location', 'Option',
+    function($scope, Order, $location, Option) {
         $scope.orders = Order.query();
+        $scope.money = Option.get({name: 'money'});
 
         $scope.addOrder = function() {
 

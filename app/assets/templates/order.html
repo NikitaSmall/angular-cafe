@@ -30,12 +30,45 @@
 
     <div class="col-md-7 col-md-pull-4">
         <div class="panel panel-info col-md-offset-1 col-md-10">
-            <ul class="list-group" ng-if="order.line_items.length > 0">
+            <div ng-if="order.line_items.length > 0">
                 <h3>Товары в заказе: </h3>
-                <li ng-repeat="line_item in order.line_items" class="list-group-item">
+                <table class="table">
+                    <thead>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                        <th>Сумма</th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="line_item in order.line_items">
+                            <td>
+                                {{line_item.id}} - {{line_item.name}}
+                            </td>
+                            <td>
+                                {{line_item.price | afterCurrency:money.value}}
+                            </td>
+                            <td>
+                                {{line_item.count}}
+                            </td>
+                            <td>
+                                {{(line_item.price * line_item.count) | afterCurrency:money.value}}
+                            </td>
+                            <td>
+                            <span class="btn btn-default">
+                                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                            </span>
+                            <span class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4 class="text-right">Всего к оплате: {{order.price | afterCurrency:money.value}}</h4>
+            </div>
 
-                </li>
-            </ul>
             <div ng-if="order.line_items.length == 0">
                 <h3>Товаров в заказе пока нет. </h3>
             </div>
@@ -51,7 +84,9 @@
                         <div id="collapse-{{category.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <ul class="list-group">
                                 <li class="list-group-item" ng-repeat="product in category.products">
-                                    {{product.name}} - {{product.price | afterCurrency:money.value}}
+                                    <span ng-click="addLineItem(product)">
+                                        {{product.name}} - {{product.price | afterCurrency:money.value}}
+                                    </span>
                                 </li>
                             </ul>
                         </div>

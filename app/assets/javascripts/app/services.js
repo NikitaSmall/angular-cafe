@@ -55,3 +55,13 @@ TableServices.factory('Order', ['$resource',
             deleteOrder: {method: 'DELETE', url: '/orders'}
         });
     }]);
+
+TableServices.factory('LineItem', ['$resource',
+    function($resource) {
+        return $resource('/line_items', {}, {
+            addLineItem: {method: 'POST'},
+            increaseCount: {method: 'PUT', url: '/line_items/up'},
+            decreaseCount: {method: 'PUT', url: '/line_items/down'},
+            deleteItem: {method: 'DELETE'}
+        });
+    }]);

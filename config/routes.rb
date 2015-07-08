@@ -48,6 +48,9 @@ Rails.application.routes.draw do
   put '/orders' => 'orders#update', defaults: { format: 'json' }
   delete '/orders' => 'orders#destroy', defaults: { format: 'json' }
 
+  post '/line_items' => 'line_items#create', defaults: { format: 'json' }
+  put '/line_items/up' => 'line_items#increase_count', defaults: { format: 'json' }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

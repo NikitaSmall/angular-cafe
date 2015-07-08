@@ -1,6 +1,7 @@
 json.id @order.id
 json.note @order.note
 json.price @order.price
+json.status @order.status
 json.created_at @order.created_at
 
 json.line_items @order.line_items do |line_item|

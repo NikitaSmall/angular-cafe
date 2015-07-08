@@ -29,7 +29,18 @@ class LineItemsController < ApplicationController
   end
 
   def decrease_count
+    line_item = LineItem.where(order_id: params[:order_id], product_id: params[:product_id]).first
 
+    line_item.count -= 1
+    line_item.save
+
+    line_item.destroy if line_item.count.zero?
+
+    order = calculate_total_price params[:order_id]
+
+    respond_to do |format|
+      format.json { render json: order.to_json }
+    end
   end
 
   private

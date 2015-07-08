@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
   post '/line_items' => 'line_items#create', defaults: { format: 'json' }
   put '/line_items/up' => 'line_items#increase_count', defaults: { format: 'json' }
+  put '/line_items/down' => 'line_items#decrease_count', defaults: { format: 'json' }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

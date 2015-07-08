@@ -36,7 +36,7 @@
                     <thead>
                         <th>Название</th>
                         <th>Цена</th>
-                        <th>Количество</th>
+                        <th>Кол-во</th>
                         <th>Сумма</th>
                         <th></th>
                         <th></th>
@@ -44,7 +44,7 @@
                     <tbody>
                         <tr ng-repeat="line_item in order.line_items">
                             <td>
-                                {{line_item.id}} - {{line_item.name}}
+                                {{line_item.name}}
                             </td>
                             <td>
                                 {{line_item.price | afterCurrency:money.value}}
@@ -56,10 +56,10 @@
                                 {{(line_item.price * line_item.count) | afterCurrency:money.value}}
                             </td>
                             <td>
-                            <span class="btn btn-default">
+                            <span class="btn btn-default" ng-click="decreaseCount(line_item)">
                                 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                             </span>
-                            <span class="btn btn-default">
+                            <span class="btn btn-default" ng-click="increaseCount(line_item)">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </span>
                             </td>
@@ -83,11 +83,11 @@
                         </div>
                         <div id="collapse-{{category.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <ul class="list-group">
-                                <li class="list-group-item" ng-repeat="product in category.products">
-                                    <span ng-click="addLineItem(product)">
+                                <button type="button" class="list-group-item" ng-repeat="product in category.products" ng-click="addLineItem(product)">
+                                    <span>
                                         {{product.name}} - {{product.price | afterCurrency:money.value}}
                                     </span>
-                                </li>
+                                </button>
                             </ul>
                         </div>
                     </div>

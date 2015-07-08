@@ -57,5 +57,34 @@ orderController.controller('orderCtrl', ['$scope', '$routeParams', 'Order', 'Cat
                 });
 
             }
-        }
+        };
+
+        $scope.increaseCount = function(line_item) {
+            LineItem.increaseCount({
+                order_id: $scope.order.id,
+                product_id: line_item.product_id
+            }, function(order) {
+                line_item.count += 1;
+                $scope.order.price = order.price;
+            });
+        };
+
+        $scope.decreaseCount = function(line_item) {
+            LineItem.decreaseCount({
+                order_id: $scope.order.id,
+                product_id: line_item.product_id
+            }, function(order) {
+                line_item.count -= 1;
+
+                if (line_item.count == 0) {
+                    var index = $scope.order.line_items.indexOf(line_item);
+
+                    if(index > -1) {
+                        $scope.order.line_items.splice(index, 1);
+                    }
+                }
+
+                $scope.order.price = order.price;
+            });
+        };
     }]);

@@ -5,6 +5,8 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routePa
         $scope.room = Room.room({id: $routeParams.id});
         $scope.points = Table.tables({id: $routeParams.id});
 
+        $scope.selectedPoint = null;
+
         $scope.removePoint = function(point) {
             var index = $scope.points.indexOf(point);
 
@@ -54,11 +56,24 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routePa
 
         };
 
-        $scope.sendTables = function() {
-            Table.sendTables({
-                room: $routeParams.id,
-                tables: $scope.points || []
+        $scope.selectPoint = function (point) {
+            $scope.selectedPoint = point;
+        };
+
+        $scope.changeSelectedPoint = function(selectedPoint) {
+            Table.updateTable({
+                id: selectedPoint.id,
+                name: selectedPoint.name,
+                description: selectedPoint.description
             });
+        };
+
+        $scope.changeRoomName = function() {
+            /* Table.sendTables({
+                 room: $routeParams.id,
+                 tables: $scope.points || []
+             }); */
+
             if($scope.room.name.length > 0) {
                 Room.updateRoom({room: $scope.room});
             }

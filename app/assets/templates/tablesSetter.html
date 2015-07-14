@@ -2,16 +2,41 @@
     <div class="col-md-4 col-md-push-7">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h1 ng-if="room.name">Редактор комнаты "{{room.name}}"</h1>
+                <h1 ng-if="room.name">Редактор комнаты</h1>
+            </div>
+            <div class="panel-body" ng-if="selectedPoint !== null">
+                <p>Это подробное описание рабочего  стола и человека, сидящего за ним.</p>
+                <p>Для сохранения данных о столике необходимо нажать на кнопку "Сохранить данные"</p>
+
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-sm-3 control-label" for="name">Имя человека: </label>
+                        <div class="col-md-7 col-sm-9">
+                            <input type="text" class="form-control" id="name" placeholder="Укажите имя" ng-model="selectedPoint.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-7 col-sm-7 control-label" for="name">Описание рабочего места: </label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12">
+                            <textarea class="form-control" placeholder="Подробное описание" ng-model="selectedPoint.description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="btn btn-primary wide" ng-click="changeSelectedPoint(selectedPoint)">Сохранить данные</div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="panel-body">
-                <p>На данной странице Вы можете добавить столики в комнату
-                    и назвать их для работы с ними в будущем.</p>
+                <p>На этой форме Вы можете добавить столики в комнату
+                    и использовать их в будущем. Выберите столик нажатием, чтобы редактировать подробную информацию.</p>
                 <p>Столик можно разместить кликнув левой кнопкой мыши по полю.
                     Чтобы убрать столик необходимо кликнуть по нему правой кнопкой мыши.</p>
-                <p>Для сохранения данных о столике необходимо нажать на кнопку "Сохранить данные"</p>
-                <p>Также можно изменить название комнаты. Для этого надо отредактировать поле ниже
-                    и нажать "Сохранить данные". Название комнаты должно быть уникальным и не пустым.</p>
+                <p>Здесь можно изменить название комнаты. Для этого надо отредактировать поле ниже
+                    и нажать "Изменить название". Название комнаты должно быть уникальным и не пустым.</p>
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label class="col-md-5 col-sm-3 control-label" for="roomName">Название комнаты: </label>
@@ -21,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <div class="btn btn-primary wide" ng-click="sendTables()">Сохранить данные</div>
+                            <div class="btn btn-primary wide" ng-click="changeRoomName()">Изменить название</div>
                         </div>
                     </div>
                 </form>
@@ -40,8 +65,9 @@
                          ng-repeat="point in points"
                          style="left: {{point.x}}%; top: {{point.y}}%;"
                          ng-right-click="removePoint(point)"
-                         ng-click="$event.stopPropagation()">
-                        <input type="text" class="form-control" placeholder="Назнание" ng-model="point.name">
+                         ng-click="$event.stopPropagation(); selectPoint(point)"
+                         popover="{{point.description}}" popover-trigger="mouseenter">
+                        <input type="text" class="form-control" placeholder="Имя" ng-model="point.name">
                     </div>
                 </div>
             </div>

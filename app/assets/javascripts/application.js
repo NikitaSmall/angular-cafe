@@ -16,6 +16,11 @@
 //= require angular/angular
 //= require angular-resource/angular-resource
 //= require angular-route/angular-route
+//= require bootstrap-sass-official/assets/javascripts/bootstrap.min
 //= require ngSticky/lib/sticky
 //= require matchmedia/matchMedia
 //= require_tree .
+
+$(document).ready(function () {
+    $('.point').popover()
+});

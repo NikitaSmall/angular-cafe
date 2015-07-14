@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   # routes that handles single table with information
   post '/tables_single' => 'tables#create', defaults: { format: 'json' }
+  put '/tables' => 'tables#update', defaults: { format: 'json' }
   delete '/tables' => 'tables#destroy', defaults: { format: 'json' }
 
   get '/rooms/rooms' => 'rooms#all'

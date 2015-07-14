@@ -17,6 +17,20 @@ class TablesController < ApplicationController
     end
   end
 
+  def update
+    table = Table.find params[:id]
+
+    table.name = params[:name]
+    table.description = params[:description]
+
+    table.save
+
+    success = true
+    respond_to do |format|
+      format.json { render json: success.to_json }
+    end
+  end
+
   def destroy
     Table.destroy params[:id]
 

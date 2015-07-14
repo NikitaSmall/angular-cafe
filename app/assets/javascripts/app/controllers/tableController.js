@@ -9,11 +9,19 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routePa
             var index = $scope.points.indexOf(point);
 
             if (index > -1) {
-                $scope.points.splice(index, 1);
+                Table.destroyTable({id: point.id}, function() {
+                    $scope.points.splice(index, 1);
+                }, function(error) {
+                    console.log(error);
+                });
+
             }
         };
 
         $scope.addPoint = function(event) {
+
+            var mouseX;
+            var mouseY;
 
             if ( event.offsetX == null ) { // Firefox
                 mouseX = event.originalEvent.layerX;
@@ -26,13 +34,24 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routePa
             mouseX = (mouseX / $scope.setCanvasWidth) * 100;
             mouseY = (mouseY / 600) * 100;
 
-            $scope.points.push({
-               x: mouseX,
-               y: mouseY,
-               name: '',
-               id: Math.random().toString(36).substring(7),
-               room: $routeParams.id
+            Table.addTable({
+                x: mouseX,
+                y: mouseY,
+                name: '',
+                description: '',
+                room: $routeParams.id
+            }, function(table) {
+                $scope.points.push({
+                    x: mouseX,
+                    y: mouseY,
+                    name: '',
+                    id: table.id,
+                    room: $routeParams.id
+                });
+            }, function(error) {
+                console.log(error);
             });
+
         };
 
         $scope.sendTables = function() {

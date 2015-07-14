@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707074339) do
+ActiveRecord::Schema.define(version: 20150714195529) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -63,12 +63,13 @@ ActiveRecord::Schema.define(version: 20150707074339) do
   end
 
   create_table "tables", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.float    "x",          limit: 24
-    t.float    "y",          limit: 24
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "room_id",    limit: 4
+    t.string   "name",        limit: 255
+    t.float    "x",           limit: 24
+    t.float    "y",           limit: 24
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "room_id",     limit: 4
+    t.text     "description", limit: 65535
   end
 
   add_index "tables", ["room_id"], name: "index_tables_on_room_id", using: :btree

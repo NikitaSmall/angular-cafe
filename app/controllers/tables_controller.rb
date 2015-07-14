@@ -9,6 +9,23 @@ class TablesController < ApplicationController
     @tables = Table.where room: params[:id]
   end
 
+  def create
+    table = Table.create x: params[:x], y: params[:y], room_id: params[:room]
+
+    respond_to do |format|
+      format.json { render json: table.to_json }
+    end
+  end
+
+  def destroy
+    Table.destroy params[:id]
+
+    success = true
+    respond_to do |format|
+      format.json { render json: success.to_json }
+    end
+  end
+
   def save_tables
     Table.set_tables params[:room], params[:tables]
 

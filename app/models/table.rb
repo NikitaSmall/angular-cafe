@@ -1,6 +1,6 @@
 class Table < ActiveRecord::Base
   belongs_to :room
-  validates :name, :x, :y, presence: true
+  validates :x, :y, presence: true
 
   def self.set_tables(room, tables)
     destroy_all(room: room)

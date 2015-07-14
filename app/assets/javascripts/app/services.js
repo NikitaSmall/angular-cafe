@@ -5,6 +5,8 @@ TableServices.factory('Table', ['$resource',
         return $resource('/tables/:id.json', {}, {
             query: {method: 'GET', params: {id: 'tables'}, isArray: true},
             tables: {method: 'GET', isArray: true},
+            addTable: {method: 'POST', url: '/tables_single'},
+            destroyTable: {method: 'DELETE', url: '/tables'},
             sendTables: {method: 'POST', url: '/tables'}
         });
     }]);

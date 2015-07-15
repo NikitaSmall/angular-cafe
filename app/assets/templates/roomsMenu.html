@@ -40,10 +40,13 @@
 
             <ul class="list-group">
                 <li ng-repeat="room in rooms" class="list-group-item">
-                    <a href="#/tables/{{room.id}}">{{room.name}}</a>
+                    <a href="#/show_room/{{room.id}}">{{room.name}}</a>
                     <button type="button" class="btn btn-default badge" ng-click="removeRoom(room)">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </button>
+                    <a class="btn btn-default badge" href="#/tables/{{room.id}}">
+                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                    </a>
                 </li>
             </ul>
         </div>

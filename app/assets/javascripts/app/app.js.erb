@@ -4,6 +4,7 @@ var cafe = angular.module('cafe', [
     'foodMenuController',
     'optionsMenuController',
     'ordersMenuController',
+    'showTableController',
     'orderController',
     'TableDirectives',
     'TableServices',
@@ -18,6 +19,10 @@ cafe.config(['$routeProvider', function($routeProvider) {
             when('/orders', {
                     templateUrl: '<%= asset_path('ordersMenu.html') %>',
                     controller: 'ordersMenuCtrl'
+                }).
+            when('/show_room/:id', {
+                    templateUrl: '<%= asset_path('showTablesMenu.html') %>',
+                    controller: 'showTableCtrl'
                 }).
             when('/orders/:id', {
                     templateUrl: '<%= asset_path('order.html') %>',

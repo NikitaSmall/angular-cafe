@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-4 col-md-push-7">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h1 ng-if="room.name">Просмотр комнаты "{{room.name}}"</h1>
+            </div>
+            <div class="panel-body" ng-if="selectedPoint !== null">
+                <p>Это подробное описание рабочего  стола и человека, сидящего за ним.</p>
+
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-sm-3 control-label" for="name">Имя человека: </label>
+                        <div class="col-md-7 col-sm-9">
+                            <input disabled type="text" class="form-control" id="name" placeholder="Укажите имя" ng-model="selectedPoint.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-sm-3 control-label" for="name">Описание стола: </label>
+                        <div class="col-md-7 col-sm-9">
+                            <input disabled type="text" class="form-control" id="inscription" placeholder="Надпись на столе" ng-model="selectedPoint.inscription">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-7 col-sm-7 control-label" for="name">Описание рабочего места: </label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12">
+                            <textarea disabled class="form-control" placeholder="Подробное описание" ng-model="selectedPoint.description"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+            </div>
+            <div class="panel-body">
+                <p>Здесь можно рассмотреть комнату под названием "{{room.name}}".</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 col-md-pull-4">
+        <div class="">
+            <div class="panel panel-info">
+                <div class="panel-body"
+                     id="setCanvas"
+                     specify-width="setCanvasWidth"
+                     style="height: {{setCanvasWidth}}px;">
+                    <div class="point"
+                         ng-repeat="point in points"
+                         ng-click="selectPoint(point)"
+                         style="left: {{point.x}}%; top: {{point.y}}%;"
+                         popover="{{point.description}}" popover-trigger="mouseenter"
+                         popover-title="{{point.name}}">
+                        <abbr title="Описание">
+                            <label class="content">{{point.inscription}}</label>
+                        </abbr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

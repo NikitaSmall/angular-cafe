@@ -13,6 +13,7 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routePa
             if (index > -1) {
                 Table.destroyTable({id: point.id}, function() {
                     $scope.points.splice(index, 1);
+                    $scope.selectedPoint = null;
                 }, function(error) {
                     console.log(error);
                 });
@@ -44,8 +45,8 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routePa
                 room: $routeParams.id
             }, function(table) {
                 $scope.points.push({
-                    x: mouseX,
-                    y: mouseY,
+                    x: table.x,
+                    y: table.y,
                     name: '',
                     id: table.id,
                     room: $routeParams.id

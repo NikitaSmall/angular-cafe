@@ -21,6 +21,7 @@ class TablesController < ApplicationController
     table = Table.find params[:id]
 
     table.name = params[:name]
+    table.inscription = params[:inscription]
     table.description = params[:description]
 
     table.save

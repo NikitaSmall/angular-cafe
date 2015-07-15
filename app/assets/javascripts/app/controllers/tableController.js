@@ -65,6 +65,7 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routePa
             Table.updateTable({
                 id: selectedPoint.id,
                 name: selectedPoint.name,
+                inscription: selectedPoint.inscription,
                 description: selectedPoint.description
             });
         };

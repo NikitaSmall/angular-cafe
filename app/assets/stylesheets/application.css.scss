@@ -42,8 +42,14 @@ body {
   position: absolute;
 }
 
-.point input {
-  margin-left: 10%;
-  width: 80%;
-  margin-top: 35%;
+.point abbr {
+  border:none;
+}
+
+.point .content {
+  margin-left: 6%;
+  width: 88%;
+  margin-top: 30%;
+  color: #ffffff;
+  text-align: center;
 }

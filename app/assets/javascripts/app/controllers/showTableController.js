@@ -11,4 +11,7 @@ showTableController.controller('showTableCtrl', ['$scope', 'Table', 'Room', '$ro
             $scope.selectedPoint = point;
         };
 
+        $scope.removeFocusFromPoint = function() {
+            $scope.selectedPoint = null;
+        }
     }]);

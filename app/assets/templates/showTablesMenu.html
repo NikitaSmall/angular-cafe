@@ -41,11 +41,12 @@
             <div class="panel panel-info">
                 <div class="panel-body"
                      id="setCanvas"
+                     ng-click="removeFocusFromPoint()"
                      specify-width="setCanvasWidth"
                      style="height: {{setCanvasWidth}}px;">
                     <div class="point"
                          ng-repeat="point in points"
-                         ng-click="selectPoint(point)"
+                         ng-click="$event.stopPropagation(); selectPoint(point)"
                          style="left: {{point.x}}%; top: {{point.y}}%;"
                          popover="{{point.description}}" popover-trigger="mouseenter"
                          popover-title="{{point.name}}">

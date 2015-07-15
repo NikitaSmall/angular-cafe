@@ -5,9 +5,9 @@
                 <h1 ng-if="room.name">Редактор комнаты</h1>
             </div>
             <div class="panel-body" ng-if="selectedPoint !== null">
-                <p>Это подробное описание рабочего  стола и человека, сидящего за ним.</p>
-                <p>Для сохранения данных о столике необходимо нажать на кнопку "Сохранить данные"</p>
-                <p>Либо же, Вы можете удалить выбранный стол ко всем чертям! (красная кнопка)</p>
+                <p>Это подробное описание рабочего  стола и человека, сидящего за ним.
+                    Для сохранения данных о столике необходимо нажать на кнопку "Сохранить данные".</p>
+                <p>Кроме того, Вы можете удалить выбранный стол лёгким нажатием на большую крассную кнопку.</p>
 
                 <form class="form-horizontal">
                     <div class="form-group">
@@ -35,6 +35,7 @@
                         </div>
                     </div>
                 </form>
+                <hr>
             </div>
             <div class="panel-body">
                 <p>На этой форме Вы можете добавить столики в комнату
@@ -72,7 +73,8 @@
                          style="left: {{point.x}}%; top: {{point.y}}%;"
                          ng-right-click="removePoint(point)"
                          ng-click="$event.stopPropagation(); selectPoint(point)"
-                         popover="{{point.description}}" popover-trigger="mouseenter">
+                         popover="{{point.description}}" popover-trigger="mouseenter"
+                         popover-title="{{point.name}}">
                         <input type="text" class="form-control" placeholder="Имя" ng-model="point.name">
                     </div>
                 </div>

@@ -41,6 +41,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-md-5 col-sm-3 control-label" for="vertical">Вертикально: </label>
+                        <div class="col-md-7 col-sm-9 checkbox">
+                            <input type="checkbox" id="vertical" ng-model="selectedPoint.vertical">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-md-12">
                             <div class="btn btn-primary wide" ng-click="changeSelectedPoint(selectedPoint)">Сохранить данные</div>
                         </div>
@@ -90,6 +96,7 @@
                          ng-right-click="removePoint(point)"
                          ng-click="$event.stopPropagation(); selectPoint(point)"
                          popover="{{point.description}}" popover-trigger="mouseenter"
+                         ng-class="{'vertical-table': point.vertical}"
                          popover-title="{{point.name}}">
                         <abbr title="Описание">
                             <label class="content">{{point.inscription}}</label>

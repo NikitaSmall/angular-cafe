@@ -67,7 +67,8 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routePa
                 name: selectedPoint.name,
                 inscription: selectedPoint.inscription,
                 description: selectedPoint.description,
-                skype: selectedPoint.skype
+                skype: selectedPoint.skype,
+                vertical: selectedPoint.vertical
             });
         };
 

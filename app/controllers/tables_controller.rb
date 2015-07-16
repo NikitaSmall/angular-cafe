@@ -22,6 +22,7 @@ class TablesController < ApplicationController
 
     table.name = params[:name]
     table.skype = params[:skype]
+    table.vertical = params[:vertical]
     table.inscription = params[:inscription]
     table.description = params[:description]
 

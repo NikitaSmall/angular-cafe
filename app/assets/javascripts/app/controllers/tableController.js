@@ -34,8 +34,8 @@ tableController.controller('setTableCtrl', ['$scope', 'Table', 'Room', '$routePa
                 mouseY = event.offsetY;
             }
 
-            mouseX = (mouseX / $scope.setCanvasWidth) * 100;
-            mouseY = (mouseY / 600) * 100;
+            mouseX = (mouseX / $scope.setCanvasWidth) * 100 - 10;
+            mouseY = (mouseY / $scope.setCanvasWidth) * 100 - 10;
 
             Table.addTable({
                 x: mouseX,

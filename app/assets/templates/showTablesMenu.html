@@ -59,6 +59,7 @@
                          ng-click="$event.stopPropagation(); selectPoint(point)"
                          style="left: {{point.x}}%; top: {{point.y}}%;"
                          popover="{{point.description}}" popover-trigger="mouseenter"
+                         ng-class="{'vertical-table': point.vertical}"
                          popover-title="{{point.name}}">
                         <abbr title="Описание">
                             <label class="content">{{point.inscription}}</label>

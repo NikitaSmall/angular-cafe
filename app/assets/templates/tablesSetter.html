@@ -5,11 +5,21 @@
                 <h1 ng-if="room.name">Редактор комнаты</h1>
             </div>
             <div class="panel-body" ng-if="selectedPoint !== null">
-                <p>Это подробное описание рабочего  стола и человека, сидящего за ним.
+                <div class="clearfix">
+                    <img class="img-responsive img-thumbnail pull-right" src="https://api.skype.com/users/{{selectedPoint.skype || '0'}}/profile/avatar" alt="avatar">
+                    <p>Это подробное описание рабочего  стола и человека, сидящего за ним.
                     Для сохранения данных о столике необходимо нажать на кнопку "Сохранить данные".</p>
-                <p>Кроме того, Вы можете удалить выбранный стол лёгким нажатием на большую крассную кнопку.</p>
+                    <p>Кроме того, Вы можете удалить выбранный стол лёгким нажатием на большую крассную кнопку.</p>
+                </div>
+                <br>
 
                 <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-sm-3 control-label" for="skype">Ник в skype: </label>
+                        <div class="col-md-7 col-sm-9">
+                            <input type="text" class="form-control" id="skype" placeholder="Укажите ник" ng-model="selectedPoint.skype">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-md-5 col-sm-3 control-label" for="name">Имя человека: </label>
                         <div class="col-md-7 col-sm-9">

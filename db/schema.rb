@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715183850) do
+ActiveRecord::Schema.define(version: 20150716071323) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150715183850) do
     t.integer  "room_id",     limit: 4
     t.text     "description", limit: 65535
     t.string   "inscription", limit: 255
+    t.string   "skype",       limit: 255
   end
 
   add_index "tables", ["room_id"], name: "index_tables_on_room_id", using: :btree
